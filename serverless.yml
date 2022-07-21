@@ -30,5 +30,5 @@ functions:
 
 custom:
   AuctionsTable:
-    name: !Ref: AuctionsTable
+    name: !Ref AuctionsTable
     arn: !GetAtt AuctionsTable.Arn
