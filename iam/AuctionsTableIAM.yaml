@@ -4,5 +4,6 @@ AuctionsTableIAM:
     - dynamodb:PutItem
     - dynamoDB:Scan
     - dynamoDB:GetItem
+    - dynamoDB:UpdateItem
   Resource:
     - ${self:custom.AuctionsTable.arn}
