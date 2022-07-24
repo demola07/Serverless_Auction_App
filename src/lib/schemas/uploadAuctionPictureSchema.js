@@ -3,7 +3,7 @@ const schema = {
 		body: {
 			type: 'string',
 			minLength: 1,
-			pattern: '=$',
+			// pattern: '=$',
 		},
 	},
 	required: ['body'],
