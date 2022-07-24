@@ -32,7 +32,6 @@ functions:
           method: POST
           path: /auction
           authorizer: ${self:custom.authorizer}
-          # authorizer: arn:aws:lambda:eu-west-1:800211026303:function:auth-service-dev-auth
 
   getAuctions:
     handler: src/handlers/getAuctions.handler
@@ -63,7 +62,7 @@ functions:
     events:
       - http:
           method: PATCH
-          path: auction/{id}/picture
+          path: /auction/{id}/picture
           authorizer: ${self:custom.authorizer}
 
   processAuctions:
