@@ -7,8 +7,16 @@ import { setAuctionPictureUrl } from '../lib/setAuctionPictureUrl'
 
 async function uploadAuctionPicture(event) {
 	const { id } = event.pathParameters
-
+	const { email } = event.requestContext.authorizer
 	const auction = await getAuctionById(id)
+
+	// Validate Auction ownership
+	if (auction.seller !== email) {
+		throw new createError.Forbidden(
+			'Not Allowed!!! You are not the seller of this auction'
+		)
+	}
+
 	const base64 = event.body.replace(/^data:image\/\w+;base64,/, '')
 	const buffer = Buffer.from(base64, 'base64')
 
